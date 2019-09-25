@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+if [ "$1" = "purge" ] && [ -e /etc/default/pzsigner ]
+then
+	rm -f /etc/default/pzsigner
+fi
+
+#DEBHELPER#

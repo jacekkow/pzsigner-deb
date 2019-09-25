@@ -1,0 +1,6 @@
+Template: pzsigner/pkcs11_library
+Type: string
+Default: /usr/lib/libcryptoCertum3PKCS.so
+Description: PKCS11 library path
+  Full path to the PKCS11 library that pzsigner should use
+  to access cryptographic card with qualified certificate.

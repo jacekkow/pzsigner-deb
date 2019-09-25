@@ -1,0 +1,15 @@
+Source: pzsigner
+Section: utils
+Priority: optional
+Build-Depends: debhelper (>= 9),
+ default-jdk, zip, unzip, ca-certificates, wget
+Maintainer: Jacek Kowalski <Jacek@jacekk.info>
+
+Package: pzsigner
+Architecture: amd64
+Section: utils
+Priority: optional
+Description: Signing utility (PZ Signer) provided by Polish ePUAP
+ (Electronic Platform of Public Administration Services)
+ for electronic signature using cryptographic cards.
+Depends: default-jre, ${misc:Depends}

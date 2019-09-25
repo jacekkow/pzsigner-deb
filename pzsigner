@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+. /etc/default/pzsigner
+
+cd /opt/pzsigner
+java -Dfile.encoding=UTF8 \
+	"-Dpz.signer.pkcs11.libpath=${PKCS11_LIBRARY}" \
+	-cp 'classes:lib/*' \
+	com.pentacomp.signer.Application

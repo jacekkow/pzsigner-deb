@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+if [ "$1" = "configure" ]
+then
+	CONFFILE=/etc/default/pzsigner
+
+	. /usr/share/debconf/confmodule
+
+	db_get pzsigner/pkcs11_library
+	echo "# Do NOT modify this file directly! Instead use:" > ${CONFFILE}
+	echo "# dpkg-reconfigure pzsigner" >> ${CONFFILE}
+	echo >> ${CONFFILE}
+	echo "PKCS11_LIBRARY=${RET}" >> ${CONFFILE}
+fi
+
+#DEBHELPER#
