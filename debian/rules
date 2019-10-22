@@ -3,7 +3,7 @@
 NAME = pzsigner
 VERSION = 1.0
 PACKAGENAME = pzsigner
-PACKAGEVERSION = $(VERSION)-1
+PACKAGEVERSION = $(VERSION)-2
 URL = "https://pz.gov.pl/PZ%20Signer/linux/x86"
 BASENAME = pzsigner.zip
 
@@ -15,12 +15,15 @@ override_dh_auto_clean:
 override_dh_auto_build:
 	mkdir -p build
 	wget -N --progress=dot:mega "$(URL)/$(BASENAME)"
+	unzip -o "$(BASENAME)" -d build
+	wget -N --progress=dot:mega "http://ftp.fau.de/eclipse/eclipse/downloads/drops4/R-4.13-201909161045/swt-4.13-gtk-linux-x86_64.zip"
+	unzip -o "swt-4.13-gtk-linux-x86_64.zip" -d swt
 	wget -N --progress=dot:mega "http://central.maven.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar"
 	wget -N --progress=dot:mega "http://central.maven.org/maven2/com/sun/xml/bind/jaxb-impl/2.3.3-b01/jaxb-impl-2.3.3-b01.jar"
-	unzip -o "$(BASENAME)" -d build
+
 	javac -cp 'build/x86_64/*' src/com/pentacomp/signer/KeyStoreManager.java
 	cp -f build/x86_64/pz-signer-1.0-SNAPSHOT.jar build/x86_64/pz-signer-1.0-SNAPSHOT-modified.jar
-	zip -d build/x86_64/pz-signer-1.0-SNAPSHOT-modified.jar META-INF/MANIFEST.MF 'META-INF/SIGNING.*'
+	zip -d build/x86_64/pz-signer-1.0-SNAPSHOT-modified.jar META-INF/MANIFEST.MF 'META-INF/SIGNING.*' 'org/eclipse/swt/*' 'libswt*' version.txt
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION) 
