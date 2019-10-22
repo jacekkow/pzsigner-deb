@@ -1,4 +1,4 @@
-= pz-signer.deb =
+# pz-signer.deb
 
 DEB packaging of PZ Signer from ePUAP.
 

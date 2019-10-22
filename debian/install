@@ -1,3 +1,4 @@
 build/x86_64/pz-signer-1.0-SNAPSHOT-modified.jar opt/pzsigner/lib
+*.jar opt/pzsigner/lib
 src/* opt/pzsigner/classes
 pzsigner usr/bin
