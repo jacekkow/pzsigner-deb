@@ -4,6 +4,7 @@
 
 cd /opt/pzsigner
 java -Dfile.encoding=UTF8 \
+	-Duser.language=pl \
 	"-Dpz.signer.pkcs11.libpath=${PKCS11_LIBRARY}" \
 	-cp 'classes:lib/*' \
 	com.pentacomp.signer.Application

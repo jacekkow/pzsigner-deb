@@ -3,7 +3,7 @@
 NAME = pzsigner
 VERSION = 1.0
 PACKAGENAME = pzsigner
-PACKAGEVERSION = $(VERSION)-3
+PACKAGEVERSION = $(VERSION)-4
 URL = "https://pz.gov.pl/PZ%20Signer/linux/x86"
 BASENAME = pzsigner.zip
 
